@@ -1,0 +1,18 @@
+{
+  "_hinweis": "Zentrale Daten der Website. Nach Änderung: npm run build. Domain und E-Mail sind Vorschläge – vor dem Upload prüfen.",
+  "siteUrl": "https://www.blitz-transport-germersheim.de",
+  "email": "info@blitz-transport-germersheim.de",
+  "mailFrom": "noreply@blitz-transport-germersheim.de",
+  "company": "Blitz Transport",
+  "owner": "Mohamad Shahraji",
+  "street": "Geschwister-Scholl-Straße 19",
+  "zip": "76726",
+  "city": "Germersheim",
+  "phoneDisplay": "0176 701 660 88",
+  "phoneIntl": "+4917670166088",
+  "whatsapp": "4917670166088",
+  "taxNumber": "41/163/83301",
+  "mapsUrl": "https://maps.app.goo.gl/H3VuFHsCU8UNDjoh6",
+  "routeUrl": "https://www.google.com/maps/dir/?api=1&destination=Geschwister-Scholl-Stra%C3%9Fe+19%2C+76726+Germersheim",
+  "geo": { "lat": 49.2167, "lng": 8.3706 }
+}
