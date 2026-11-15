@@ -1,0 +1,1 @@
+import{i as o}from"./cookie-CTGtOkrQ.js";o();const l=document.getElementById("top"),t=document.getElementById("year");t&&(t.textContent=new Date().getFullYear());const e=()=>l.classList.toggle("is-scrolled",scrollY>30);addEventListener("scroll",e,{passive:!0});e();

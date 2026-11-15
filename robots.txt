@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://contactnasriimen-ctrl.github.io/blitz-transport/sitemap.xml
