@@ -2202,3 +2202,328 @@ main {
     contain-intrinsic-size: auto 2300px;
   }
 }
+
+/* =========================================================================
+   Less classic: LED ticker, licence plates, town signs, radio FAQ, giant footer word
+   (CSS only – no extra JS, no extra GPU work)
+   ========================================================================= */
+
+/* LED ticker like an Autobahn matrix sign */
+.ticker {
+  position: relative;
+  margin: 40px calc(-1 * var(--gutter)) 0;
+  padding: 12px 0;
+  overflow: hidden;
+  background: #05080f;
+  border-block: 2px solid #1b2a44;
+  transform: skewY(-2deg);
+  box-shadow: 0 0 0 1px rgba(255, 107, 0, 0.12), 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+.ticker::before,
+.ticker::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 80px;
+  z-index: 1;
+  pointer-events: none;
+}
+.ticker::before {
+  left: 0;
+  background: linear-gradient(90deg, #05080f, transparent);
+}
+.ticker::after {
+  right: 0;
+  background: linear-gradient(-90deg, #05080f, transparent);
+}
+.ticker__track {
+  display: flex;
+  width: max-content;
+  animation: ticker 48s linear infinite;
+}
+.ticker__track span {
+  padding-right: 48px;
+  white-space: nowrap;
+  font-family: ui-monospace, 'Cascadia Mono', Consolas, monospace;
+  font-weight: 700;
+  font-size: clamp(17px, 1.6vw, 22px);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #ffb23a;
+  text-shadow: 0 0 6px rgba(255, 140, 0, 0.75);
+  /* dot-matrix look */
+  -webkit-mask: radial-gradient(circle, #000 58%, transparent 62%) 0 0 / 3px 3px;
+  mask: radial-gradient(circle, #000 58%, transparent 62%) 0 0 / 3px 3px;
+}
+@keyframes ticker {
+  to { transform: translateX(-50%); }
+}
+
+/* Warum: German licence plates, parked at an angle */
+.plates {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 22px;
+  padding: 10px 4px 6px;
+}
+.plate-card {
+  --r: -2.5deg;
+  position: relative;
+  padding: 20px 18px 22px;
+  background: linear-gradient(180deg, #0f1d36, #0a1426);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  transform: rotate(var(--r)) translateY(var(--y, 0));
+  transition: transform 0.4s var(--ease), border-color 0.3s;
+}
+.plate-card:nth-child(2) { --r: 1.8deg; --y: 18px; }
+.plate-card:nth-child(3) { --r: -1.2deg; --y: -6px; }
+.plate-card:nth-child(4) { --r: 2.6deg; --y: 12px; }
+.plate-card:hover {
+  transform: none;
+  border-color: rgba(255, 107, 0, 0.6);
+}
+.plate-card h3 {
+  margin: 18px 0 8px;
+  font-family: var(--display);
+  font-style: italic;
+  font-weight: 700;
+  font-size: 23px;
+  text-transform: uppercase;
+  color: var(--white);
+}
+.plate-card > p:last-child {
+  margin: 0;
+  font-size: 16px;
+  color: var(--muted);
+}
+.plate {
+  display: flex;
+  height: 50px;
+  margin: 0;
+  background: #f7f7f2;
+  border: 2.5px solid #111;
+  border-radius: 6px;
+  box-shadow: inset 0 0 0 2px #f7f7f2, inset 0 0 0 3.5px #111, 0 8px 18px rgba(0, 0, 0, 0.45);
+  overflow: hidden;
+}
+.plate__eu {
+  position: relative;
+  flex: none;
+  width: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding-bottom: 4px;
+  background: #1240a8;
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1;
+  color: #fff;
+}
+.plate__eu i {
+  position: absolute;
+  top: 6px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px dotted #ffd400;
+}
+.plate__txt {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 30px;
+  letter-spacing: 0.06em;
+  color: #111;
+}
+.plate__seal {
+  width: 12px;
+  height: 28px;
+  border-radius: 6px;
+  background:
+    radial-gradient(circle at 50% 28%, #c43 0 4px, transparent 4.5px),
+    radial-gradient(circle at 50% 72%, #2d6f3a 0 4px, transparent 4.5px);
+}
+.plates__note {
+  margin: 30px 0 0;
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #74839c;
+}
+
+/* Ablauf: yellow German town signs along the road */
+.board--steps .steps {
+  align-items: end;
+}
+.board--steps .steps__item {
+  padding-top: 0;
+}
+.town {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  gap: 2px;
+  max-width: 280px;
+  margin: 0 0 16px;
+  padding: 12px 16px;
+  background: var(--yellow);
+  border-radius: 6px;
+  box-shadow: inset 0 0 0 3px var(--yellow), inset 0 0 0 6px #111, 0 14px 30px rgba(0, 0, 0, 0.45);
+  color: #111;
+  text-align: center;
+  transform: translateY(14px);
+  opacity: 0.5;
+  transition: transform 0.5s var(--ease), opacity 0.5s;
+}
+.town::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -16px;
+  width: 6px;
+  height: 16px;
+  margin-left: -3px;
+  background: #8b94a3;
+}
+.town b {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 34px;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+.town small {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.steps__item.is-reached .town {
+  transform: none;
+  opacity: 1;
+}
+
+/* FAQ as a radio exchange: the customer asks, the dispatcher answers */
+.faq__list details {
+  border: 0;
+  margin-bottom: 14px;
+}
+.faq__list summary {
+  margin-left: auto;
+  width: fit-content;
+  max-width: 88%;
+  padding: 12px 46px 12px 16px;
+  background: #13284a;
+  border-radius: 14px 14px 4px 14px;
+  font-size: 19px;
+}
+.faq__list summary::before {
+  content: 'Kunde' / '';
+  display: block;
+  margin-bottom: 2px;
+  font-family: ui-monospace, Consolas, monospace;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #8fb0e8;
+}
+.faq__list summary::after {
+  right: 16px;
+}
+.faq__list details p {
+  position: relative;
+  max-width: 88%;
+  margin: 10px 0 0;
+  padding: 12px 16px;
+  background: #0a1426;
+  border: 1px solid rgba(255, 107, 0, 0.35);
+  border-radius: 14px 14px 14px 4px;
+  color: #c9d3e3;
+}
+.faq__list details p::before {
+  content: 'Blitz-Dispo' / '';
+  display: block;
+  margin-bottom: 2px;
+  font-family: ui-monospace, Consolas, monospace;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--orange);
+}
+
+/* Footer: giant outlined word */
+.foot {
+  overflow: hidden;
+}
+.foot__giant {
+  margin: -6px 0 18px;
+  font-family: var(--display);
+  font-style: italic;
+  font-weight: 800;
+  font-size: clamp(90px, 22vw, 330px);
+  line-height: 0.8;
+  letter-spacing: 0.02em;
+  text-align: center;
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(255, 107, 0, 0.55);
+  user-select: none;
+}
+
+@media (max-width: 1180px) {
+  .plates {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: 34px;
+  }
+}
+@media (max-width: 760px) {
+  .ticker {
+    margin-top: 26px;
+  }
+  .plates {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .plate-card,
+  .plate-card:nth-child(n) {
+    --y: 0;
+    --r: -1deg;
+  }
+  .plate-card:nth-child(even) {
+    --r: 1deg;
+  }
+  .board--steps .steps {
+    gap: 30px;
+  }
+  .board--steps .steps__item {
+    padding-left: 0;
+  }
+  .town {
+    opacity: 1;
+    transform: none;
+  }
+  .faq__list summary,
+  .faq__list details p {
+    max-width: 94%;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ticker__track {
+    animation: none;
+  }
+}

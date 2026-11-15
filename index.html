@@ -174,6 +174,7 @@
           <li><a href="#europaweit"><svg aria-hidden="true"><use href="#i-globe" /></svg><span>National &amp; International</span></a></li>
         </ul>
         <a class="scrollcue" href="#kurierfahrten"><span class="scrollcue__road" aria-hidden="true"><i></i></span><span>Scrollen – die Fahrt beginnt</span></a>
+        <div class="ticker" aria-hidden="true"><div class="ticker__track"><span>+++ Nachtexpress: abends abgeholt, morgens zugestellt +++ Direkt, ohne Umladen +++ Umzüge &amp; Möbeltransporte +++ Kurier in Germersheim, Speyer, Karlsruhe, Mannheim +++ GER → Europa +++ Anrufen: %%phoneDisplay%% </span><span>+++ Nachtexpress: abends abgeholt, morgens zugestellt +++ Direkt, ohne Umladen +++ Umzüge &amp; Möbeltransporte +++ Kurier in Germersheim, Speyer, Karlsruhe, Mannheim +++ GER → Europa +++ Anrufen: %%phoneDisplay%% </span></div></div>
       </section>
 
       <!-- 01 -->
@@ -283,33 +284,34 @@
 
       <!-- WARUM -->
       <section id="warum" class="chapter chapter--wide" data-cam="warum" aria-labelledby="t-warum">
-        <div class="board">
+        <div class="board board--plates">
           <header class="board__head">
             <p class="eyebrow">Warum Blitz</p>
             <h2 class="board__title" id="t-warum">Transport ist Vertrauenssache.</h2>
           </header>
-          <div class="why">
-            <article class="why__item">
-              <svg aria-hidden="true"><use href="#i-route" /></svg>
+          <div class="plates">
+            <article class="plate-card">
+              <p class="plate" aria-label="Kennzeichen GER DI 1"><span class="plate__eu" aria-hidden="true"><i></i>D</span><span class="plate__txt" aria-hidden="true">GER<span class="plate__seal"></span>DI 1</span></p>
               <h3>Direkt statt Umweg</h3>
               <p>Keine Sortierzentren, kein Umladen: Ihre Sendung bleibt vom Start bis zum Ziel im selben Fahrzeug.</p>
             </article>
-            <article class="why__item">
-              <svg aria-hidden="true"><use href="#i-user" /></svg>
+            <article class="plate-card">
+              <p class="plate" aria-label="Kennzeichen GER MS 1"><span class="plate__eu" aria-hidden="true"><i></i>D</span><span class="plate__txt" aria-hidden="true">GER<span class="plate__seal"></span>MS 1</span></p>
               <h3>Ein Ansprechpartner</h3>
               <p>Sie sprechen direkt mit %%owner%% – vom ersten Anruf bis zur Zustellung.</p>
             </article>
-            <article class="why__item">
-              <svg aria-hidden="true"><use href="#i-moon" /></svg>
+            <article class="plate-card">
+              <p class="plate" aria-label="Kennzeichen GER TN 24"><span class="plate__eu" aria-hidden="true"><i></i>D</span><span class="plate__txt" aria-hidden="true">GER<span class="plate__seal"></span>TN 24</span></p>
               <h3>Tag &amp; Nacht</h3>
               <p>Mit dem Nachtexpress sind wir auch dann unterwegs, wenn andere längst Feierabend haben.</p>
             </article>
-            <article class="why__item">
-              <svg aria-hidden="true"><use href="#i-shield" /></svg>
+            <article class="plate-card">
+              <p class="plate" aria-label="Kennzeichen GER OK 100"><span class="plate__eu" aria-hidden="true"><i></i>D</span><span class="plate__txt" aria-hidden="true">GER<span class="plate__seal"></span>OK 100</span></p>
               <h3>Sorgfalt mit System</h3>
               <p>Gurte, Decken, saubere Ladungssicherung: Wir behandeln Ihre Ware, als wäre es unsere eigene.</p>
             </article>
           </div>
+          <p class="plates__note">GER – das Kennzeichen unserer Heimat Germersheim.</p>
         </div>
       </section>
 
@@ -322,18 +324,18 @@
           </header>
           <ol class="steps">
             <li class="steps__item">
-              <span class="steps__no">1</span>
-              <h3>Anfrage senden</h3>
-              <p>Per Formular, Telefon oder WhatsApp. Sagen Sie uns: was, von wo, wohin und wann.</p>
+              <div class="town" aria-hidden="true"><small>Etappe 1</small><b>Anfrage</b><small>Formular · Telefon · WhatsApp</small></div>
+              <h3 class="sr-only">1. Anfrage senden</h3>
+              <p>Sagen Sie uns, was, von wo, wohin und wann – per Formular, Telefon oder WhatsApp.</p>
             </li>
             <li class="steps__item">
-              <span class="steps__no">2</span>
-              <h3>Angebot erhalten</h3>
+              <div class="town" aria-hidden="true"><small>Etappe 2</small><b>Angebot</b><small>klar &amp; verbindlich</small></div>
+              <h3 class="sr-only">2. Angebot erhalten</h3>
               <p>Sie bekommen zügig ein klares Angebot – damit Sie wissen, woran Sie sind.</p>
             </li>
             <li class="steps__item">
-              <span class="steps__no">3</span>
-              <h3>Wir fahren los</h3>
+              <div class="town" aria-hidden="true"><small>Etappe 3</small><b>Abfahrt</b><small>direkt ans Ziel</small></div>
+              <h3 class="sr-only">3. Wir fahren los</h3>
               <p>Abholen, sichern, liefern. Direkt und zuverlässig bis ans Ziel.</p>
             </li>
           </ol>
@@ -502,6 +504,7 @@
     </main>
 
     <footer class="foot">
+      <p class="foot__giant" aria-hidden="true">BLITZ</p>
       <div class="foot__inner">
         <div class="foot__brand">
           <a class="brand" href="#start"><svg class="brand__bolt" aria-hidden="true"><use href="#i-bolt" /></svg><span class="brand__name"><b>BLITZ</b> <span>TRANSPORT</span></span></a>
